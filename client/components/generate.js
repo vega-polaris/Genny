@@ -1,13 +1,19 @@
 import React from 'react'
 import {Button, Typography} from '@material-ui/core'
 import genPass from '../../genny'
+import axios from 'axios'
 
 class Generate extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {newPass: ''}
+    this.state = {newPass: '', availWords: []}
     this.handleGenerate = this.handleGenerate.bind(this)
   }
+  componentDidMount() {
+    // api call
+    // api url pull lotr words
+  }
+
   handleGenerate() {
     this.setState({
       newPass: genPass()
