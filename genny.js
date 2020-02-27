@@ -21,7 +21,7 @@ export const randomizer = function(rangeStart, rangeEnd) {
 
 /* create function to choose two random words, in random order, adding 1-5 random digits and 1 random special character */
 
-const genPass = function() {
+const genPass = function(arrayOfWords) {
   // how many digits?
   const digitAmount = randomizer(1, 4)
   const badArray = []
@@ -35,7 +35,7 @@ const genPass = function() {
   const specChar = characters[randomizer(0, characters.length - 1)]
   badArray.push(specChar)
   // badArray = [1, 2, 3, %]
-  const wordArr = fakeDB.slice()
+  const wordArr = arrayOfWords.slice()
   const spliceOutIdxOne = randomizer(0, wordArr.length - 1)
   const firstWord = wordArr.splice(spliceOutIdxOne, 1)[0]
   const spliceOutIdxTwo = randomizer(0, wordArr.length - 1)
