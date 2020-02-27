@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {User, LotrWord} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -13,6 +13,16 @@ async function seed() {
   ])
 
   console.log(`seeded ${users.length} users`)
+
+  const lotrWords = await Promise.all([
+    LotrWord.create({word: 'Galadriel'}),
+    LotrWord.create({word: 'Elrond'}),
+    LotrWord.create({word: 'Aragorn'}),
+    LotrWord.create({word: 'Samwise'})
+  ])
+
+  console.log(`seeded ${lotrWords.length} lotrWords`)
+
   console.log(`seeded successfully`)
 }
 
