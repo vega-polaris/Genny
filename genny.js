@@ -21,7 +21,7 @@ export const randomizer = function(rangeStart, rangeEnd) {
 
 /* create function to choose two random words, in random order, adding 1-5 random digits and 1 random special character */
 
-export default genPass = function() {
+const genPass = function() {
   // how many digits?
   const digitAmount = randomizer(1, 4)
   const badArray = []
@@ -53,3 +53,5 @@ export default genPass = function() {
   // [1, elf, ^, 3, dwemer]
   return pwArray.join('')
 }
+
+export default genPass
